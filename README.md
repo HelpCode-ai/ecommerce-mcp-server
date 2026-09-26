@@ -14,15 +14,15 @@ Maintained by [helpcode.ai](https://helpcode.ai), the team that builds and maint
 | System | Region | Tools | Auth | Verified live | Cloud | Dedicated repo |
 |---|---|---|---|---|---|---|
 | Amazon Seller Central (SP-API) | Global | 15 | OAuth 2.0 | yes, 2026-07-17 | [install](https://cloud.anythingmcp.com/connectors/store?install=amazon-seller) | [amazon-seller-mcp-server](https://github.com/keysersoft/amazon-seller-mcp-server) |
-| WooCommerce | Global | 49 | User + password | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=woocommerce) | – |
-| Shopware 6 Store API | DE | 6 | API key | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=shopware-6) | – |
+| WooCommerce | Global | 49 | User + password | yes, 2026-09-26 | [install](https://cloud.anythingmcp.com/connectors/store?install=woocommerce) | [woocommerce-mcp-server](https://github.com/keysersoft/woocommerce-mcp-server) |
+| Shopware 6 Store API | DE | 6 | API key | yes, 2026-09-26 | [install](https://cloud.anythingmcp.com/connectors/store?install=shopware-6) | [shopware-mcp-server](https://github.com/kochfreiburg/shopware-mcp-server) |
 | Magento (Adobe Commerce) | Global | 12 | API token | yes, 2026-09-26 | [install](https://cloud.anythingmcp.com/connectors/store?install=magento) | [magento-mcp-server](https://github.com/keysersoft/magento-mcp-server) |
 | BigCommerce | Global | 14 | API key | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=bigcommerce) | – |
 | eBay Sell | Global | 10 | OAuth 2.0 | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=ebay-sell) | – |
 | Etsy | Global | 9 | OAuth 2.0 | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=etsy) | – |
 | Ecwid | Global | 10 | API token | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=ecwid) | – |
-| Kaufland Marketplace | DE | 8 | Signed API key | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=kaufland) | – |
-| OTTO Market † | DE | 8 | OAuth 2.0 | no † | [install](https://cloud.anythingmcp.com/connectors/store?install=otto-market) | – |
+| Kaufland Marketplace | DE | 8 | Signed API key | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=kaufland) | [kaufland-mcp-server](https://github.com/kochfreiburg/kaufland-mcp-server) |
+| OTTO Market † | DE | 8 | OAuth 2.0 | no † | [install](https://cloud.anythingmcp.com/connectors/store?install=otto-market) | [otto-market-mcp-server](https://github.com/kochfreiburg/otto-market-mcp-server) |
 | Zalando Partner (ZDS) † | DE | 7 | OAuth 2.0 | no † | [install](https://cloud.anythingmcp.com/connectors/store?install=zalando-zds) | – |
 | Billbee Order Management | DE | 8 | User + password | yes, 2026-09-26 | [install](https://cloud.anythingmcp.com/connectors/store?install=billbee) | [billbee-mcp-server](https://github.com/kochfreiburg/billbee-mcp-server) |
 | Mercado Libre | BR | 4 | OAuth 2.0 | not yet | [install](https://cloud.anythingmcp.com/connectors/store?install=mercado-libre) | – |
