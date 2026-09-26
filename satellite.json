@@ -1,0 +1,129 @@
+{
+  "$comment": "Read by scripts/install.sh, scripts/smoke.mjs and the sync workflow. Generated; edit satellites.config.json in HelpCode-ai/anythingmcp instead.",
+  "repo": "ecommerce-mcp-server",
+  "owner": "HelpCode-ai",
+  "mainRepo": "HelpCode-ai/anythingmcp",
+  "adapters": [
+    {
+      "slug": "amazon-seller",
+      "region": "intl",
+      "requiredEnvVars": [
+        "SPAPI_CLIENT_ID",
+        "SPAPI_CLIENT_SECRET",
+        "SPAPI_REFRESH_TOKEN",
+        "SPAPI_ENDPOINT",
+        "SPAPI_MARKETPLACE_ID",
+        "SPAPI_SELLER_ID"
+      ]
+    },
+    {
+      "slug": "woocommerce",
+      "region": "intl",
+      "requiredEnvVars": [
+        "WOOCOMMERCE_URL",
+        "WOOCOMMERCE_CONSUMER_KEY",
+        "WOOCOMMERCE_CONSUMER_SECRET"
+      ]
+    },
+    {
+      "slug": "shopware-6",
+      "region": "de",
+      "requiredEnvVars": [
+        "SHOPWARE_URL",
+        "SHOPWARE_ACCESS_KEY"
+      ]
+    },
+    {
+      "slug": "magento",
+      "region": "intl",
+      "requiredEnvVars": [
+        "MAGENTO_BASE_URL",
+        "MAGENTO_ACCESS_TOKEN"
+      ]
+    },
+    {
+      "slug": "bigcommerce",
+      "region": "intl",
+      "requiredEnvVars": [
+        "BIGCOMMERCE_STORE_HASH",
+        "BIGCOMMERCE_ACCESS_TOKEN"
+      ]
+    },
+    {
+      "slug": "ebay-sell",
+      "region": "intl",
+      "requiredEnvVars": [
+        "EBAY_CLIENT_ID",
+        "EBAY_CLIENT_SECRET",
+        "EBAY_REFRESH_TOKEN",
+        "EBAY_MARKETPLACE_ID"
+      ]
+    },
+    {
+      "slug": "etsy",
+      "region": "intl",
+      "requiredEnvVars": [
+        "ETSY_CLIENT_ID",
+        "ETSY_CLIENT_SECRET"
+      ]
+    },
+    {
+      "slug": "ecwid",
+      "region": "intl",
+      "requiredEnvVars": [
+        "ECWID_STORE_ID",
+        "ECWID_TOKEN"
+      ]
+    },
+    {
+      "slug": "kaufland",
+      "region": "de",
+      "requiredEnvVars": [
+        "KAUFLAND_CLIENT_KEY",
+        "KAUFLAND_SECRET_KEY"
+      ]
+    },
+    {
+      "slug": "otto-market",
+      "region": "de",
+      "requiredEnvVars": [
+        "OTTO_USERNAME",
+        "OTTO_PASSWORD"
+      ]
+    },
+    {
+      "slug": "zalando-zds",
+      "region": "de",
+      "requiredEnvVars": [
+        "ZALANDO_CLIENT_ID",
+        "ZALANDO_CLIENT_SECRET",
+        "ZALANDO_MERCHANT_ID"
+      ]
+    },
+    {
+      "slug": "billbee",
+      "region": "de",
+      "requiredEnvVars": [
+        "BILLBEE_API_KEY",
+        "BILLBEE_LOGIN_EMAIL",
+        "BILLBEE_API_PASSWORD"
+      ]
+    },
+    {
+      "slug": "mercado-libre",
+      "region": "br",
+      "requiredEnvVars": [
+        "MERCADO_LIBRE_CLIENT_ID",
+        "MERCADO_LIBRE_CLIENT_SECRET"
+      ]
+    }
+  ],
+  "setup": {
+    "type": "adapter"
+  },
+  "smokeCall": {
+    "tool": "amazon_marketplace_ids",
+    "args": {},
+    "mayFailWithoutCredentials": true
+  }
+}

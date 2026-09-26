@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "ecommerce-mcp-server: E-commerce MCP server: connect Amazon, eBay, WooCommerce, Shopware, Kaufland, OTTO and 7 more to Claude & ChatGPT."
+message: "If you use this software, please cite AnythingMCP, which it is built on."
+type: software
+authors:
+  - name: "helpcode.ai GmbH"
+repository-code: "https://github.com/HelpCode-ai/ecommerce-mcp-server"
+url: "https://anythingmcp.com/marketplace/category/ecommerce"
+license: AGPL-3.0-only
+references:
+  - type: software
+    title: "AnythingMCP"
+    authors:
+      - name: "helpcode.ai GmbH"
+    repository-code: "https://github.com/HelpCode-ai/anythingmcp"
