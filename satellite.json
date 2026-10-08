@@ -114,7 +114,8 @@
       "region": "br",
       "requiredEnvVars": [
         "MERCADO_LIBRE_CLIENT_ID",
-        "MERCADO_LIBRE_CLIENT_SECRET"
+        "MERCADO_LIBRE_CLIENT_SECRET",
+        "MERCADO_LIBRE_SITE_DOMAIN"
       ]
     }
   ],
