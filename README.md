@@ -5,7 +5,7 @@
 E-commerce MCP Server connects 13 e-commerce systems to Claude, ChatGPT, Copilot and Cursor through one MCP endpoint: 160 tools in total. Pick the systems you run, add their credentials, and each becomes a set of MCP tools. It runs on AnythingMCP Cloud or self-hosted with Docker, with encrypted credentials and an audit log.
 
 **Last verified:** 2026-09-26 against the systems marked verified in the table (each one's own verification is linked from its row).  
-**Adapter synced:** <!-- synced -->2026-09-26
+**Adapter synced:** <!-- synced -->2026-10-08
 
 Maintained by [helpcode.ai](https://helpcode.ai), the team that builds and maintains [AnythingMCP](https://github.com/HelpCode-ai/anythingmcp).
 
@@ -142,10 +142,11 @@ git clone https://github.com/HelpCode-ai/ecommerce-mcp-server.git && cd ecommerc
 | `shopware_search_suggest` | Shopware search suggest — returns product suggestions for as-you-type autocomplete. | read |
 | `shopware_get_cross_sells` | Retrieve the cross-sell product streams configured for a product (e.g. | read |
 
-#### Magento (Adobe Commerce) (12)
+#### Magento (Adobe Commerce) (13)
 
 | Tool | What it does | Access |
 |---|---|---|
+| `magento_list_store_views` | List the store views of the Magento / Adobe Commerce instance (id, code, name, website). | read |
 | `magento_search_products` | Search products with Magento's search criteria DSL. | read |
 | `magento_get_product` | Fetch a single product by SKU. | read |
 | `magento_create_product` | Create a product. | write |
@@ -191,21 +192,34 @@ git clone https://github.com/HelpCode-ai/ecommerce-mcp-server.git && cd ecommerc
 | `ebay_sell_list_return_policies` | List the seller's return policies: whether returns are accepted, the return window, and who pays the shipping. | read |
 | `ebay_sell_list_payment_disputes` | List payment disputes opened against the seller, with the reason, amount, status and the deadline to respond. | read |
 | `ebay_sell_get_privileges` | Read the selling privileges of the account: whether selling is enabled and what the current selling limits on quantity and value are. | read |
-| `ebay_sell_update_offer_price` | Change the price of a live offer. | write |
+| `ebay_sell_update_offer_price` | Change the price of a published offer (eBay bulk_update_price_quantity). | write |
 
-#### Etsy (9)
+#### Etsy (22)
 
 | Tool | What it does | Access |
 |---|---|---|
 | `etsy_get_authenticated_user` | Return the user the OAuth token belongs to. | read |
-| `etsy_get_user_shops` | List shops owned by the user. | read |
+| `etsy_get_user_shops` | List shops owned by a user. | read |
 | `etsy_get_shop` | Fetch one shop by shop_id with full details (announcement, sale message, etc.). | read |
-| `etsy_get_shop_listings_active` | List active listings in a shop. | read |
+| `etsy_get_shop_listings_active` | Public list of a shop's active listings, as any visitor sees them. | read |
+| `etsy_get_listings_by_shop` | Listings of your own shop by state (active, inactive, sold_out, draft, removed, expired), as the shop owner sees them. | read |
 | `etsy_get_listing` | Fetch one listing by listing_id with full details. | read |
 | `etsy_get_shop_receipts` | List orders (receipts) for the shop. | read |
 | `etsy_get_shop_receipt` | Fetch one receipt with buyer info, transactions[], shipping address. | read |
 | `etsy_get_shop_reviews` | List reviews (transactions with feedback) for the shop. | read |
 | `etsy_get_listings_by_shop_section` | List listings filtered by a shop section. | read |
+| `etsy_list_seller_taxonomy` | The full tree of Etsy seller categories (id, name, children). | read |
+| `etsy_list_taxonomy_properties` | Properties (size, colour, material…) and their allowed values for one seller category. | read |
+| `etsy_list_shipping_profiles` | The shop's shipping profiles. | read |
+| `etsy_list_processing_profiles` | The shop's processing profiles (Etsy calls them readiness states: ready to ship or made to order, with processing times). | read |
+| `etsy_list_return_policies` | The shop's return policies. | read |
+| `etsy_list_shop_sections` | The shop's sections, to file a listing under one with shop_section_id. | read |
+| `etsy_read_listing_inventory` | Products, prices, quantities and SKUs of a listing, per variation. | read |
+| `etsy_create_listing_draft` | Create a listing as a draft (not visible to buyers). | write |
+| `etsy_edit_listing` | Change a listing: title, description, tags, category, shipping, section, or state. | write |
+| `etsy_set_listing_inventory` | Set price, quantity and SKU of a listing, per variation. | write |
+| `etsy_add_listing_image` | Add a photo to a listing from a public image URL (JPG, PNG or GIF, up to 10 MB). | write |
+| `etsy_add_order_tracking` | Mark an order (receipt) as shipped with its tracking code. | write |
 
 #### Ecwid (10)
 
@@ -239,26 +253,24 @@ git clone https://github.com/HelpCode-ai/ecommerce-mcp-server.git && cd ecommerc
 
 | Tool | What it does | Access |
 |---|---|---|
-| `otto_market_list_orders` | List orders from a date onwards, with their positions, buyer, delivery address and fulfilment status. | read |
+| `otto_market_list_orders` | List orders with their positions, buyer, delivery address and fulfilment status, optionally from/to an order date. | read |
 | `otto_market_get_order` | Read one order in full: every position with SKU, price and status, the delivery and invoice addresses, and the payment method. | read |
-| `otto_market_list_products` | List the seller's product variations with their SKU, EAN, product reference and current market status on otto.de. | read |
-| `otto_market_get_product` | Read one product variation by SKU: its attributes, category, media and the current status of its listing on otto.de. | read |
-| `otto_market_list_quantities` | Read the current stock quantities OTTO holds for the seller's SKUs, so a discrepancy with the ERP can be spotted. | read |
-| `otto_market_list_returns` | List returns with their SKU, quantity, reason and the order they belong to — the input to any returns-rate question. | read |
-| `otto_market_update_quantity` | Set the available stock for one SKU. | write |
-| `otto_market_update_price` | Set the price for one SKU. | write |
+| `otto_market_list_products` | List the seller's product variations with their SKU, EAN, product reference and category, optionally filtered. | read |
+| `otto_market_get_product` | Read one product variation by SKU: its attributes, category and media. | read |
+| `otto_market_list_quantities` | Read the current stock quantities OTTO holds for the seller's SKUs (up to 200 per page), so a discrepancy with the ERP can be spotted. | read |
+| `otto_market_list_returns` | List returned position items by return status, with their SKU, reason and the order they belong to — the input to any returns-rate question. | read |
+| `otto_market_update_quantity` | Set the available stock for one SKU, as OTTO's availability interface holds it. | write |
+| `otto_market_update_price` | Set the standard price for one SKU. | write |
 
-#### Zalando Partner (ZDS) (7)
+#### Zalando Partner (ZDS) (5)
 
 | Tool | What it does | Access |
 |---|---|---|
 | `zalando_zds_list_orders` | List orders for the merchant with their order number, date, status and totals. | read |
 | `zalando_zds_get_order` | Read one order in full: its items with EAN and price, the delivery address, and the current fulfilment state of each item. | read |
 | `zalando_zds_list_order_items` | List the individual items of one order with their EAN, article number, price and per-item status — the level Zalando actually fulfils and cancels at. | read |
-| `zalando_zds_list_shipments` | List shipments the merchant has reported, with their carrier, tracking number, date and the order items they cover. | read |
-| `zalando_zds_list_returns` | List returns with their EAN, reason code, date and the order they belong to — the input to any returns-rate analysis. | read |
-| `zalando_zds_list_stock` | Read the stock Zalando currently holds for the merchant's EANs, so a discrepancy with the ERP can be found before it becomes an oversell. | read |
-| `zalando_zds_list_prices` | Read the prices currently live on Zalando for the merchant's EANs, including any active promotional price and its validity window. | read |
+| `zalando_zds_list_shipments` | List the shipments of one order, with their carrier, tracking number and the order items they cover. | read |
+| `zalando_zds_list_returns` | List announced returns (a customer created a return label for a Partner Fulfilled order) with their items, reason and the order they belong to. | read |
 
 #### Billbee Order Management (8)
 
